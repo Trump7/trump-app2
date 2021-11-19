@@ -1,11 +1,53 @@
 @startuml
-'https://plantuml.com/sequence-diagram
+class controller{
+    +buttonAdd
+    +buttonRem
+    +buttonCls
+    +buttonEdit
+    +buttonSave
+    +buttonLoad
+    +tableview
+    +textFieldSearch
+    +buttonHelp
+}
 
-autonumber
+class save{
+    +save
+    +saveAsJson
+    +saveAsHtml
+    +saveAsText
+}
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+class load{
+    +load
+    +loadAsJson
+    +loadAsHtml
+    +loadAsText
+}
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+class InventoryManagementApplication{
+    +start
+    +main
+}
+
+class MineItemData{
+    -mineName
+    -mineValue
+    -mineSerial
+    +MineItemData
+    +getName
+    +setName
+    +getValue
+    +setValue
+    +getSerial
+    +setSerial
+}
+
+InventoryManagementApplication -- controller
+controller -- MineItemData
+controller -- save
+controller -- load
+
+
+
 @enduml
