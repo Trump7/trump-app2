@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="509.0" fitWidth="906.0" layoutX="-71.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -23,27 +23,27 @@
       <TableView fx:id="inventoryView" layoutX="188.0" layoutY="122.0" opacity="0.85" prefHeight="339.0" prefWidth="554.0">
         <columns>
           <TableColumn fx:id="inventoryName" editable="false" prefWidth="306.0" text="Name" />
-          <TableColumn fx:id="InventoryValue" editable="false" minWidth="0.0" prefWidth="106.0" text="Value (USD)" />
-            <TableColumn fx:id="InventorySerial" editable="false" prefWidth="141.0" text="Serial # (A-XXX...)" />
+          <TableColumn fx:id="inventoryValue" editable="false" minWidth="0.0" prefWidth="106.0" text="Value (USD)" />
+            <TableColumn fx:id="inventorySerial" editable="false" prefWidth="141.0" text="Serial # (A-XXX...)" />
         </columns>
       </TableView>
       <MenuBar layoutY="-2.0" prefHeight="21.0" prefWidth="782.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Save" />
-                  <MenuItem mnemonicParsing="false" text="Load" />
-              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="saveList" mnemonicParsing="false" onAction="#saveFile" text="Save" />
+                  <MenuItem fx:id="loadList" mnemonicParsing="false" onAction="#loadFile" text="Load" />
+              <MenuItem fx:id="closeList" mnemonicParsing="false" onAction="#closeProgram" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="Documentation" />
+              <MenuItem fx:id="helpGuide" mnemonicParsing="false" onAction="#openHelp" text="Documentation" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <TextField fx:id="searchInv" layoutX="482.0" layoutY="86.0" prefHeight="25.0" prefWidth="260.0" promptText="Search Inventory" />
+      <TextField fx:id="searchInv" layoutX="188.0" layoutY="87.0" onAction="#searchTextField" prefHeight="25.0" prefWidth="260.0" promptText="Search Inventory" />
       <ImageView fitHeight="87.0" fitWidth="151.0" layoutX="22.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@cart.png" />
@@ -84,22 +84,22 @@
             <Font name="Gill Sans Ultra Bold" size="34.0" />
          </font>
       </Label>
-      <Button fx:id="clearButton" layoutX="22.0" layoutY="380.0" mnemonicParsing="false" opacity="0.0" prefHeight="86.0" prefWidth="151.0" text="Clear">
+      <Button fx:id="clearButton" layoutX="22.0" layoutY="380.0" mnemonicParsing="false" onAction="#clearList" opacity="0.0" prefHeight="86.0" prefWidth="151.0" text="Clear">
          <font>
             <Font name="Stencil" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="removeButton" layoutX="22.0" layoutY="294.0" mnemonicParsing="false" opacity="0.0" prefHeight="86.0" prefWidth="151.0" text="Remove">
+      <Button fx:id="removeButton" layoutX="22.0" layoutY="294.0" mnemonicParsing="false" onAction="#removeItem" opacity="0.0" prefHeight="86.0" prefWidth="151.0" text="Remove">
          <font>
             <Font name="Stencil" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="addButton" layoutX="22.0" layoutY="122.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="151.0" text="add" textFill="WHITE" visible="false">
+      <Button fx:id="addButton" layoutX="22.0" layoutY="122.0" mnemonicParsing="false" onAction="#addItem" prefHeight="86.0" prefWidth="151.0" text="add" textFill="WHITE" visible="false">
          <font>
             <Font name="Stencil" size="33.0" />
          </font>
       </Button>
-      <Button fx:id="editButton" layoutX="22.0" layoutY="208.0" mnemonicParsing="false" opacity="0.0" prefHeight="86.0" prefWidth="151.0" text="Edit">
+      <Button fx:id="editButton" layoutX="22.0" layoutY="208.0" mnemonicParsing="false" onAction="#editItem" opacity="0.0" prefHeight="86.0" prefWidth="151.0" text="Edit">
          <font>
             <Font name="Stencil" size="33.0" />
          </font>
