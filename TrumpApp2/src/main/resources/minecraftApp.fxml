@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <ImageView fitHeight="509.0" fitWidth="906.0" layoutX="-71.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,7 +24,7 @@
         <columns>
           <TableColumn fx:id="inventoryName" editable="false" prefWidth="306.0" text="Name" />
           <TableColumn fx:id="inventoryValue" editable="false" minWidth="0.0" prefWidth="106.0" text="Value (USD)" />
-            <TableColumn fx:id="inventorySerial" editable="false" prefWidth="141.0" text="Serial # (A-XXX...)" />
+            <TableColumn fx:id="inventorySerial" editable="false" prefWidth="141.0" text="Serial #" />
         </columns>
       </TableView>
       <MenuBar layoutY="-2.0" prefHeight="21.0" prefWidth="782.0">

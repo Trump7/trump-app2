@@ -1,18 +1,24 @@
+import javafx.collections.ObservableList;
+
 public class ListManipulator {
 
-    public void addItem(){
-
+    public ObservableList<MineItemData> addItem(ObservableList<MineItemData> list){
+        ObservableList<MineItemData> temp1 = list;
+        return temp1;
     }
 
-    public void clearList(){
-
+    public ObservableList<MineItemData> clearList(ObservableList<MineItemData> list){
+        ObservableList<MineItemData> temp1 = list;
+        return temp1;
     }
 
-    public void editItem(){
-
+    public ObservableList<MineItemData> editList(ObservableList<MineItemData> list){
+        ObservableList<MineItemData> temp1 = list;
+        return temp1;
     }
 
-    public void removeItem(){
-
+    public ObservableList<MineItemData> removeItem(ObservableList<MineItemData> list){
+        ObservableList<MineItemData> temp1 = list;
+        return temp1;
     }
 }
