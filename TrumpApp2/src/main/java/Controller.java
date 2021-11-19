@@ -8,6 +8,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class Controller {
 
     @FXML
@@ -53,47 +55,59 @@ public class Controller {
 
     @FXML
     void addItem(ActionEvent event) {
+        //need to call the ListManipulator class and the addItem method
+        //passing the observable list with it
 
     }
 
     @FXML
     void clearList(ActionEvent event) {
-
-    }
-
-    @FXML
-    void closeProgram(ActionEvent event) {
-
+        //need to call the ListManipulator class and the clearList method
+        //passing the observable list with it
     }
 
     @FXML
     void editItem(ActionEvent event) {
-
-    }
-
-    @FXML
-    void loadFile(ActionEvent event) {
-
-    }
-
-    @FXML
-    void openHelp(ActionEvent event) {
-
+        //need to call the ListManipulator class and the editItem method
+        //passing the observable list with it
     }
 
     @FXML
     void removeItem(ActionEvent event) {
+        //need to call the ListManipulator class and the removeItem method
+        //passing the observable list with it
+    }
 
+    @FXML
+    void openHelp(ActionEvent event) throws IOException {
+        //create a new scene
+        //load the extra fxml scene (will be created)
+        //create a title for the scene
+        //make scene uneditable
+        //show scene
     }
 
     @FXML
     void saveFile(ActionEvent event) {
+        //pass the current observable list to the Save class to handle saving the file
+    }
 
+    @FXML
+    void loadFile(ActionEvent event) {
+        //Create a temporary observable list to hold the new lists' data
+        //if the new list is not empty, it will clear the current list
+        //set the current list to the passed observable list and set the tableview to the new list
+    }
+
+    @FXML
+    void closeProgram(ActionEvent event) {
+        //figure out a way to end the program from the file menu
     }
 
     @FXML
     void searchTextField(ActionEvent event) {
-
+        //need an active listener to make sure the table is updating
+        //everytime a new letter or number is written
     }
 
 }

@@ -1,14 +1,23 @@
 @startuml
 class controller{
-    +buttonAdd
-    +buttonRem
-    +buttonCls
-    +buttonEdit
-    +buttonSave
-    +buttonLoad
-    +tableview
-    +textFieldSearch
-    +buttonHelp
+    -buttonAdd
+    -buttonRem
+    -buttonCls
+    -buttonEdit
+    -buttonSave
+    -buttonLoad
+    -tableview
+    -textFieldSearch
+    -buttonHelp
+    +addItem
+    +clearList
+    +editItem
+    +removeItem
+    +openHelp
+    +saveFile
+    +loadFile
+    +closeProgram
+    +searchTextField
 }
 
 class save{
