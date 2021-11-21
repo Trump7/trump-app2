@@ -122,10 +122,21 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void loadFile(ActionEvent event) {
+    void loadFile(ActionEvent event) throws IOException {
         //Create a temporary observable list to hold the new lists' data
         //if the new list is not empty, it will clear the current list
         //set the current list to the passed observable list and set the tableview to the new list
+        Load loadFile = new Load();
+
+        ObservableList<MineItemData> loadedData = FXCollections.observableArrayList();
+
+        loadedData = loadFile.load(loadedData);
+
+        if(loadedData != null){
+            list.clear();
+            list = loadedData;
+            inventoryView.setItems(list);
+        }
     }
 
     @FXML
