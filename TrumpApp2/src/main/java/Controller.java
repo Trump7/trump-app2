@@ -2,7 +2,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -55,6 +58,9 @@ public class Controller implements Initializable {
     private MenuItem helpGuide;
 
     @FXML
+    private MenuItem about;
+
+    @FXML
     private MenuItem loadList;
 
     @FXML
@@ -72,8 +78,6 @@ public class Controller implements Initializable {
         list = add.addItem(list);
         //passing the observable list with it
         inventoryView.refresh();
-
-
     }
 
     @FXML
@@ -106,12 +110,35 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void openHelp(ActionEvent event){
-        //create a new scene
+    void openHelp(ActionEvent event) throws IOException {
         //load the extra fxml scene (will be created)
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Help.fxml"));
+        Parent root1 = fxmlLoader.load();
+        //create a new scene
+        Stage stage = new Stage();
         //create a title for the scene
-        //make scene uneditable
+        stage.setTitle("Help Guide");
+        stage.setScene(new Scene(root1));
+        //make scene not resizeable
+        stage.setResizable(false);
         //show scene
+        stage.show();
+    }
+
+    @FXML
+    void openAbout(ActionEvent event) throws IOException {
+        //load the extra fxml scene (will be created)
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("about.fxml"));
+        Parent root1 = fxmlLoader.load();
+        //create a new scene
+        Stage stage = new Stage();
+        //create a title for the scene
+        stage.setTitle("About page");
+        stage.setScene(new Scene(root1));
+        //make scene not resizeable
+        stage.setResizable(false);
+        //show scene
+        stage.show();
     }
 
     @FXML
@@ -124,16 +151,16 @@ public class Controller implements Initializable {
     @FXML
     void loadFile(ActionEvent event) throws IOException {
         //Create a temporary observable list to hold the new lists' data
-        //if the new list is not empty, it will clear the current list
-        //set the current list to the passed observable list and set the tableview to the new list
-        Load loadFile = new Load();
-
         ObservableList<MineItemData> loadedData = FXCollections.observableArrayList();
+
+        Load loadFile = new Load();
 
         loadedData = loadFile.load(loadedData);
 
+        //if the new list is not empty, it will clear the current list
         if(loadedData != null){
             list.clear();
+            //set the current list to the passed observable list and set the tableview to the new list
             list = loadedData;
             inventoryView.setItems(list);
         }
@@ -155,11 +182,4 @@ public class Controller implements Initializable {
             stage.close();
         }
     }
-
-    @FXML
-    void searchTextField(ActionEvent event) {
-        //need an active listener to make sure the table is updating
-        //everytime a new letter or number is written
-    }
-
 }

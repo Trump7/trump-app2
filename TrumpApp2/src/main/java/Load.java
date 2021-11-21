@@ -1,8 +1,15 @@
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Load {
 
@@ -61,6 +68,26 @@ public class Load {
     }
 
     public ObservableList<MineItemData> loadJsonFromFile(ObservableList<MineItemData> list, File file){
+        try {
+            //create nessacary parsers from the Google gson library
+            Object temp = JsonParser.parseReader(new FileReader(file));
+
+            JsonArray itemName = (JsonArray) temp;
+            //if the argument search is equal to one of the names in the json file
+
+            for (com.google.gson.JsonElement item : itemName) {
+                JsonObject json = (JsonObject) item;
+                //This is setting the name equal to each name of the products json
+                //each time the loop goes through.
+                String name = json.get("name").getAsString();
+                Float value = json.get("value").getAsFloat();
+                String serial = json.get("serial").getAsString();
+
+                list.add(new MineItemData(name, value, serial));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         return list;
     }
 

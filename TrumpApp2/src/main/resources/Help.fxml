@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Group layoutX="10.0" layoutY="47.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="129.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="293.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="129.0" layoutX="295.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="293.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="129.0" layoutY="131.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="293.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="129.0" layoutX="295.0" layoutY="131.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="293.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="129.0" layoutY="262.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="293.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="129.0" layoutX="295.0" layoutY="262.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="293.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="129.0" layoutY="393.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="293.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="129.0" layoutX="295.0" layoutY="393.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="293.0" />
+                <Label layoutX="4.0" layoutY="2.0" text="Adding an Item" underline="true">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="299.0" layoutY="2.0" text="Removing an Item" underline="true">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="4.0" layoutY="131.0" text="Marking an Item (Incomplete/Complete)" underline="true">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="299.0" layoutY="131.0" text="Editing an Item" underline="true">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="4.0" layoutY="262.0" text="Clearing a List" underline="true">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="299.0" layoutY="262.0" text="Filtering an Item List" underline="true">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="4.0" layoutY="391.0" text="Saving a List" underline="true">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="299.0" layoutY="391.0" text="Loading a List" underline="true">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label alignment="TOP_LEFT" layoutX="12.0" layoutY="22.0" prefHeight="96.0" prefWidth="265.0" text="In order to add an item to the list, navigate to&#10;the bottom of the program.  Enter a name, a&#10;description, and a date (Optional). Finally,&#10;click the add button.  The table will automatically&#10;update with your new item.&#10;" wrapText="true" />
+                <Label alignment="TOP_LEFT" layoutX="309.0" layoutY="22.0" prefHeight="105.0" prefWidth="265.0" text="In order to remove an item from the list first,&#10;select the item in the table.  Then navigate to the&#10;botton of the table and click remove. A confirm&#10;box will display asking if you're sure you want to&#10;delete the item.  If you choose yes, the table will&#10;automatically update and your item will be gone." />
+                <Label alignment="TOP_LEFT" layoutX="12.0" layoutY="151.0" prefHeight="105.0" prefWidth="265.0" text="In order to mark your item as complete or &#10;incomplete first,  select the item from the table&#10;Next, navigate to the bottom of the table and&#10;click &quot;Mark Complete/Incomplete&quot;.  The table will&#10;automatically update and your item will have its&#10;chosen status." />
+                <Label alignment="TOP_LEFT" layoutX="309.0" layoutY="151.0" prefHeight="103.0" prefWidth="265.0" text="To edit an item first, select the item in the table.&#10;Next, navigate to the bottom of the table and&#10;click &quot;Edit Item&quot;.  A window will appear with the&#10;items' data filled out.  Change the name, desc, or&#10;date and click ok.  The table will automatically&#10;update and your item will be changed.&#10;" />
+                <Label alignment="TOP_LEFT" layoutX="12.0" layoutY="281.0" prefHeight="96.0" prefWidth="265.0" text="In order to clear a list, navigate to the bottom of&#10;the table and click &quot;Clear List&quot;. A warning box will&#10;appear asking if you're sure you want to clear the&#10;list.  If you click ok, the table will automatically&#10;update and your list will be cleared." />
+                <Label alignment="TOP_LEFT" layoutX="309.0" layoutY="281.0" prefHeight="105.0" prefWidth="273.0" text="To filter an existing list, navigate to the bottom&#10;right of the table.  There will be three buttons:&#10;All Items, Incompleted Items, and Completed&#10;Items.  Choosing Incompleted Items will only&#10;show items whose status are incompleted. &#10;The same but opposite applies to the other choice." />
+                <Label alignment="TOP_LEFT" layoutX="12.0" layoutY="410.0" prefHeight="105.0" prefWidth="265.0" text="In order to save your list, navigate towards the&#10;file menu in the upper left corner of the screen.&#10;Click file, then Save.  The prompted save dialog&#10;will ask where you want the file saved. Once you&#10;click save, the list will be stored seperated by&#10; commas." />
+                <Label alignment="TOP_LEFT" layoutX="309.0" layoutY="410.0" prefHeight="96.0" prefWidth="265.0" text="Much like saving, navigate towards the file menu&#10;in the upper left corner of the screen. Click file,&#10;then load.  Choose the previously saved file to&#10;load and click load.  The files contents will be &#10;displayed in the table automatically." />
+            </children>
+        </Group>
+        <Label layoutX="241.0" layoutY="7.0" text="Help Guide">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

@@ -1,16 +1,10 @@
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
-import org.w3c.dom.Text;
 
-import java.io.IOException;
-import java.util.Objects;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,7 +12,8 @@ import java.util.regex.Pattern;
 public class ListManipulator {
 
     public ObservableList<MineItemData> addItem(ObservableList<MineItemData> list) {
-        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.CEILING);
 
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setTitle("Add Item");
@@ -59,7 +54,7 @@ public class ListManipulator {
 
         if(result.isPresent() && result.get() == okButtonType){
             if(validateName(nameBox) && validateValue(valueBox) && validateSerial(serialBox, list)){
-                list.add(new MineItemData(nameBox, Float.valueOf(valueBox), serialBox));
+                list.add(new MineItemData(nameBox, Float.valueOf(df.format(Float.valueOf(valueBox))), serialBox));
             }
         }
        return list;
@@ -84,6 +79,9 @@ public class ListManipulator {
             String selectedName = selectedItem.getName();
             String selectedSerial = selectedItem.getSerial();
             float selectedValue = selectedItem.getValue();
+
+            DecimalFormat df = new DecimalFormat("#.##");
+            df.setRoundingMode(RoundingMode.CEILING);
 
             // Create the custom dialog to edit the selected item
             Dialog<ButtonType> dialog = new Dialog<>();
@@ -126,7 +124,7 @@ public class ListManipulator {
                     selectedItem.setName(name.getText());
                 }
                 if(!value.getText().equals("") && validateValue(value.getText())){
-                    selectedItem.setValue(Float.valueOf(value.getText()));
+                    selectedItem.setValue(Float.valueOf(df.format(Float.valueOf(value.getText()))));
                 }
                 if(!serial.getText().equals("") && validateSerial(serial.getText(), list)){
                     selectedItem.setSerial(serial.getText());

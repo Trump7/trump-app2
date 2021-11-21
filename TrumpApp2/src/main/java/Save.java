@@ -1,11 +1,11 @@
+import com.google.gson.Gson;
 import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Save {
 
@@ -57,10 +57,42 @@ public class Save {
     }
 
     public void saveJsonToFile(ObservableList<MineItemData> list, File file){
+        try{
+            // create writer
+            Writer writer = new FileWriter(file);
 
+            // convert users list to JSON file
+            new Gson().toJson(list, writer);
+
+            // close writer
+            writer.close();
+
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
     }
 
     public void saveHtmlToFile(ObservableList<MineItemData> list, File file){
+        try{
+            PrintWriter writer;
+            writer = new PrintWriter(file);
 
+            writer.write("<html>\n<style>table, th, td {border:1px solid black;}</style>\n");
+            writer.write("<h2>Inventory Table</h2>\n<table style=\"width:100%\">\n");
+            writer.write("<tr>\n<th>Name</th><th>Value</th><th>Serial</th>\n</tr>");
+
+            //Goes through every item in the Item list and adds the correct in between each item
+            for (MineItemData mine : list) {
+                writer.write("<tr><td>" + mine.getName() + "</td><td>" + mine.getValue()
+                        + "</td><td>" + mine.getSerial() + "</td></tr>\n");
+            }
+
+            writer.write("</table>\n</html>");
+
+            //the above for loop adds all items line by line to a html file
+            writer.close();
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
     }
 }

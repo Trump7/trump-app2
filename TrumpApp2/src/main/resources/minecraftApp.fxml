@@ -58,12 +58,13 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem fx:id="helpGuide" mnemonicParsing="false" onAction="#openHelp" text="Documentation" />
+              <MenuItem fx:id="helpGuide" mnemonicParsing="false" onAction="#openHelp" text="How To" />
+                  <MenuItem fx:id="about" mnemonicParsing="false" onAction="#openAbout" text="About" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <TextField fx:id="searchInv" layoutX="188.0" layoutY="87.0" onAction="#searchTextField" prefHeight="25.0" prefWidth="260.0" promptText="Search Inventory" />
+      <TextField fx:id="searchInv" layoutX="188.0" layoutY="87.0" prefHeight="25.0" prefWidth="260.0" promptText="Search Inventory" />
       <Label layoutX="58.0" layoutY="143.0" rotate="-3.9" text="Add">
          <font>
             <Font name="Gill Sans Ultra Bold" size="36.0" />
