@@ -102,11 +102,11 @@ public class ListManipulator {
 
             //adding the text boxes and setting the box text to the selected items contents
             TextField name = new TextField();
-            name.setText(selectedName);
+            name.setPromptText(selectedName);
             TextField value = new TextField();
-            value.setText(String.valueOf(selectedValue));
+            value.setPromptText(String.valueOf(selectedValue));
             TextField serial = new TextField();
-            serial.setText(selectedSerial);
+            serial.setPromptText(selectedSerial);
 
             //Adding labels for each of the text fields
             gridPane.add(new Label("Name: "), 0, 0);
@@ -121,19 +121,14 @@ public class ListManipulator {
             Optional<ButtonType> result = dialog.showAndWait();
 
             //if any of the text boxes are filled, replace the items corresponding subitems with the new name
-            if(!name.getText().equals("")) {
+            if(!name.getText().equals("") && validateName(name.getText())) {
                 selectedItem.setName(name.getText());
             }
-            if(!value.getText().equals("")){
+            if(!value.getText().equals("") && validateValue(value.getText())){
                 selectedItem.setValue(Float.valueOf(value.getText()));
             }
-            if(!serial.getText().equals("")){
+            if(!serial.getText().equals("") && validateSerial(serial.getText(), list)){
                 selectedItem.setSerial(serial.getText());
-            }
-
-            //If the okay button is pushed, refresh the tableview
-            if(result.isPresent()){
-                //itemContainer.refresh();
             }
         }
         return list;
