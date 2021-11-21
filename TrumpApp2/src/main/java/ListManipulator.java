@@ -120,15 +120,17 @@ public class ListManipulator {
 
             Optional<ButtonType> result = dialog.showAndWait();
 
-            //if any of the text boxes are filled, replace the items corresponding subitems with the new name
-            if(!name.getText().equals("") && validateName(name.getText())) {
-                selectedItem.setName(name.getText());
-            }
-            if(!value.getText().equals("") && validateValue(value.getText())){
-                selectedItem.setValue(Float.valueOf(value.getText()));
-            }
-            if(!serial.getText().equals("") && validateSerial(serial.getText(), list)){
-                selectedItem.setSerial(serial.getText());
+            if(result.isPresent()){
+                //if any of the text boxes are filled, replace the items corresponding subitems with the new name
+                if(!name.getText().equals("") && validateName(name.getText())) {
+                    selectedItem.setName(name.getText());
+                }
+                if(!value.getText().equals("") && validateValue(value.getText())){
+                    selectedItem.setValue(Float.valueOf(value.getText()));
+                }
+                if(!serial.getText().equals("") && validateSerial(serial.getText(), list)){
+                    selectedItem.setSerial(serial.getText());
+                }
             }
         }
         return list;

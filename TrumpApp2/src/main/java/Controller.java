@@ -3,15 +3,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -118,7 +116,9 @@ public class Controller implements Initializable {
 
     @FXML
     void saveFile(ActionEvent event) {
+        Save saveFile = new Save();
         //pass the current observable list to the Save class to handle saving the file
+        saveFile.save(list);
     }
 
     @FXML
@@ -130,7 +130,19 @@ public class Controller implements Initializable {
 
     @FXML
     void closeProgram(ActionEvent event) {
-        //figure out a way to end the program from the file menu
+        //Confirmation for whether the user wants to exit or not
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation needed");
+        alert.setHeaderText("Are you sure you would like to exit?");
+        alert.setContentText("All unsaved data will be lost");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK){
+            //getting the stage from a button on the stage (addButton)
+            //because for some reason you can't use the menu button item
+            Stage stage = (Stage) addButton.getScene().getWindow();
+            stage.close();
+        }
     }
 
     @FXML
