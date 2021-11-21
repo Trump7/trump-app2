@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,8 +20,8 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources){
         inventoryName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        inventorySerial.setCellValueFactory(new PropertyValueFactory<>("Serial #"));
-        inventoryValue.setCellValueFactory(new PropertyValueFactory<>("Value (USD)"));
+        inventorySerial.setCellValueFactory(new PropertyValueFactory<>("Serial"));
+        inventoryValue.setCellValueFactory(new PropertyValueFactory<>("Value"));
 
         inventoryView.setItems(list);
     }
@@ -68,27 +69,42 @@ public class Controller implements Initializable {
 
     @FXML
     void addItem(ActionEvent event) {
+        ListManipulator add = new ListManipulator();
         //need to call the ListManipulator class and the addItem method
+        list = add.addItem(list);
         //passing the observable list with it
+        inventoryView.refresh();
+
 
     }
 
     @FXML
     void clearList(ActionEvent event) {
+        ListManipulator clear = new ListManipulator();
         //need to call the ListManipulator class and the clearList method
         //passing the observable list with it
+        list = clear.clearList(list);
+        inventoryView.refresh();
     }
 
     @FXML
     void editItem(ActionEvent event) {
+        ListManipulator edit = new ListManipulator();
         //need to call the ListManipulator class and the editItem method
         //passing the observable list with it
+        MineItemData selectedItem = inventoryView.getSelectionModel().getSelectedItem();
+        list = edit.editList(list, selectedItem);
+        inventoryView.refresh();
     }
 
     @FXML
     void removeItem(ActionEvent event) {
+        ListManipulator remove = new ListManipulator();
+        MineItemData selectedItem = inventoryView.getSelectionModel().getSelectedItem();
         //need to call the ListManipulator class and the removeItem method
         //passing the observable list with it
+        list = remove.removeItem(list, selectedItem);
+        inventoryView.refresh();
     }
 
     @FXML

@@ -20,11 +20,31 @@
             <Image url="@back.jpg" />
          </image>
       </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="151.0" layoutX="22.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cart.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="151.0" layoutX="22.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cart.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="151.0" layoutX="22.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cart.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="151.0" layoutX="22.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cart.png" />
+         </image>
+      </ImageView>
       <TableView fx:id="inventoryView" layoutX="188.0" layoutY="122.0" opacity="0.85" prefHeight="339.0" prefWidth="554.0">
         <columns>
           <TableColumn fx:id="inventoryName" editable="false" prefWidth="306.0" text="Name" />
-          <TableColumn fx:id="inventoryValue" editable="false" minWidth="0.0" prefWidth="106.0" text="Value (USD)" />
-            <TableColumn fx:id="inventorySerial" editable="false" prefWidth="141.0" text="Serial #" />
+          <TableColumn fx:id="inventoryValue" editable="false" minWidth="0.0" prefWidth="106.0" text="Value" />
+            <TableColumn fx:id="inventorySerial" editable="false" prefWidth="141.0" text="Serial" />
         </columns>
       </TableView>
       <MenuBar layoutY="-2.0" prefHeight="21.0" prefWidth="782.0">
@@ -44,26 +64,6 @@
         </menus>
       </MenuBar>
       <TextField fx:id="searchInv" layoutX="188.0" layoutY="87.0" onAction="#searchTextField" prefHeight="25.0" prefWidth="260.0" promptText="Search Inventory" />
-      <ImageView fitHeight="87.0" fitWidth="151.0" layoutX="22.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@cart.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="87.0" fitWidth="151.0" layoutX="22.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@cart.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="87.0" fitWidth="151.0" layoutX="22.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@cart.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="87.0" fitWidth="151.0" layoutX="22.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@cart.png" />
-         </image>
-      </ImageView>
       <Label layoutX="58.0" layoutY="143.0" rotate="-3.9" text="Add">
          <font>
             <Font name="Gill Sans Ultra Bold" size="36.0" />
@@ -94,12 +94,12 @@
             <Font name="Stencil" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="addButton" layoutX="22.0" layoutY="122.0" mnemonicParsing="false" onAction="#addItem" prefHeight="86.0" prefWidth="151.0" text="add" textFill="WHITE" visible="false">
+      <Button fx:id="editButton" layoutX="22.0" layoutY="208.0" mnemonicParsing="false" onAction="#editItem" opacity="0.0" prefHeight="86.0" prefWidth="151.0" text="Edit">
          <font>
             <Font name="Stencil" size="33.0" />
          </font>
       </Button>
-      <Button fx:id="editButton" layoutX="22.0" layoutY="208.0" mnemonicParsing="false" onAction="#editItem" opacity="0.0" prefHeight="86.0" prefWidth="151.0" text="Edit">
+      <Button fx:id="addButton" layoutX="22.0" layoutY="122.0" mnemonicParsing="false" onAction="#addItem" opacity="0.0" prefHeight="86.0" prefWidth="151.0" text="Add" textFill="WHITE">
          <font>
             <Font name="Stencil" size="33.0" />
          </font>

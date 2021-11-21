@@ -22,7 +22,9 @@ public class MineItemData {
         return value;
     }
 
-    public void setValue(Float value){this.value = value;}
+    public void setValue(Float value){
+        this.value = value;
+    }
 
     public String getSerial(){
         return serial;
