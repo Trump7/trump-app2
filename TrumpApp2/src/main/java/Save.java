@@ -80,13 +80,13 @@ public class Save {
             writer = new PrintWriter(file);
 
             writer.write("<html>\n<style>table, th, td {border:1px solid black;}</style>\n");
-            writer.write("<h2>Inventory Table</h2>\n<table style=\"width:100%\">\n");
-            writer.write("<tr>\n<th>Name</th><th>Value</th><th>Serial</th>\n</tr>");
+            writer.write("<h2>Inventory</h2>\n<table border=1>\n");
+            writer.write("<tr>\n<th>Name</th>\n<th>Value</th>\n<th>Serial</th>\n</tr>");
 
             //Goes through every item in the Item list and adds the correct in between each item
             for (MineItemData mine : list) {
-                writer.write("<tr><td>" + mine.getName() + "</td><td>" + mine.getValue()
-                        + "</td><td>" + mine.getSerial() + "</td></tr>\n");
+                writer.write("<tr>\n<td>" + mine.getName() + "</td>\n<td>" + mine.getValue()
+                        + "</td>\n<td>" + mine.getSerial() + "</td>\n</tr>\n");
             }
 
             writer.write("</table>\n</html>");

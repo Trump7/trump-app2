@@ -8,6 +8,10 @@ import com.google.gson.JsonParser;
 import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.*;
 
@@ -91,7 +95,24 @@ public class Load {
         return list;
     }
 
-    public ObservableList<MineItemData> loadHtmlFromFile(ObservableList<MineItemData> list, File file){
+    public ObservableList<MineItemData> loadHtmlFromFile(ObservableList<MineItemData> list, File file) throws IOException {
+        Document htmlFile;
+        htmlFile = Jsoup.parse(file, "UTF-8");
+
+        Element table = htmlFile.select("table").get(0);
+        Elements rows = table.select("tr");
+
+        for(int i = 1; i < rows.size(); i++){
+            Element row = rows.get(i);
+            Elements cols = row.select("td");
+
+            String name = cols.get(0).text();
+            Float value = Float.valueOf(cols.get(1).text());
+            String serial = cols.get(2).text();
+
+            list.add(new MineItemData(name, value, serial));
+        }
+
         return list;
     }
 }

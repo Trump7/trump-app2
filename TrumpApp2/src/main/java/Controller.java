@@ -4,6 +4,8 @@
  */
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,10 +14,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -30,7 +34,7 @@ public class Controller implements Initializable {
 
         inventoryView.setItems(list);
 
-        
+
     }
 
     @FXML
@@ -187,5 +191,39 @@ public class Controller implements Initializable {
             Stage stage = (Stage) addButton.getScene().getWindow();
             stage.close();
         }
+    }
+
+
+    @FXML
+    void invSearcher(KeyEvent event) {
+        //making a new filtered list
+        FilteredList<MineItemData> filteredData = new FilteredList<>(list, b -> true);
+
+        //Add a listener to check changes made to text box
+        searchInv.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(MineItemData -> {
+                //adding a predicate to figure out if the words written are present in the data
+                if(newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+                //checking item name
+                if(MineItemData.getName().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+                //checking item serial
+                else if(MineItemData.getSerial().indexOf(newValue) != -1){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            });
+        });
+        //updating the inventory view
+        SortedList<MineItemData> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(inventoryView.comparatorProperty());
+        inventoryView.setItems(sortedData);
     }
 }
