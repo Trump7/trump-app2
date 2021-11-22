@@ -15,6 +15,8 @@ import java.util.regex.Pattern;
 
 public class ListManipulator {
 
+    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+
     public ObservableList<MineItemData> addItem(ObservableList<MineItemData> list) {
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
@@ -156,8 +158,6 @@ public class ListManipulator {
     }
 
     public boolean validateValue(String value){
-        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-
         Pattern p = Pattern.compile("[0-9]+\\.?[0-9]*");
         Matcher m = p.matcher(value);
 
@@ -171,7 +171,6 @@ public class ListManipulator {
     }
 
     public boolean validateSerial(String serial, ObservableList<MineItemData> list){
-        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
         Pattern p = Pattern.compile("^[A-Za-z]-[A-Za-z0-9]{3}-[A-Za-z0-9]{3}-[A-Za-z0-9]{3}");
         Matcher m = p.matcher(serial);
 
@@ -185,8 +184,6 @@ public class ListManipulator {
     }
 
     public boolean validateName(String name){
-        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-
         if(!(name.length() >= 2 && name.length() <= 256)){
             errorAlert.setHeaderText("Input not valid");
             errorAlert.setContentText("Name must be between 2 and 256 characters inclusive.");
@@ -197,9 +194,11 @@ public class ListManipulator {
     }
 
     public boolean validateSerialList(String serial, ObservableList<MineItemData> list){
-        for(MineItemData mine : list){
-            if(mine.getSerial().equals(serial)){
-                return false;
+        if(list != null){
+            for(MineItemData mine : list){
+                if(mine.getSerial().equals(serial)){
+                    return false;
+                }
             }
         }
         return true;
