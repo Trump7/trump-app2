@@ -8,30 +8,43 @@ class controller{
     -buttonLoad
     -tableview
     -textFieldSearch
-    -buttonHelp
+    -helpGuide
+    -about
     +addItem
     +clearList
     +editItem
     +removeItem
     +openHelp
+    +openAbout
     +saveFile
     +loadFile
     +closeProgram
-    +searchTextField
+    +invSearcher
+}
+
+class ListManipulator{
+    +addItem
+    +clearList
+    +editList
+    +removeItem
+    +validateValue
+    +validateSerial
+    +validateName
+    +validateSerialList
 }
 
 class save{
     +save
-    +saveAsJson
-    +saveAsHtml
-    +saveAsText
+    +saveTxtToFile
+    +saveHtmlToFile
+    +saveJsonToFile
 }
 
 class load{
     +load
-    +loadAsJson
-    +loadAsHtml
-    +loadAsText
+    +loadJsonFromFile
+    +loadHtmlFromFile
+    +loadTxtFromFile
 }
 
 class InventoryManagementApplication{
@@ -53,10 +66,9 @@ class MineItemData{
 }
 
 InventoryManagementApplication -- controller
+controller -- ListManipulator
 controller -- MineItemData
 controller -- save
 controller -- load
-
-
 
 @enduml
