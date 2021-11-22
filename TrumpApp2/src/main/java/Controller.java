@@ -1,3 +1,7 @@
+/*
+ *  UCF COP3330 Fall 2021 Application Assignment 2 Solution
+ *  Copyright 2021 Matthew Trump
+ */
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,6 +29,8 @@ public class Controller implements Initializable {
         inventoryValue.setCellValueFactory(new PropertyValueFactory<>("Value"));
 
         inventoryView.setItems(list);
+
+        
     }
 
     @FXML

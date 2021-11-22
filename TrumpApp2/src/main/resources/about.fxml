@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="166.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="104.0" layoutX="24.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
+      <Label layoutX="126.0" layoutY="14.0" text="About">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="49.0" text="This program was made by Matthew Trump" />
+      <Label layoutX="90.0" layoutY="86.0" prefHeight="17.0" prefWidth="129.0" text="UCF COP3330 Fall 2021" />
+      <Label layoutX="87.0" layoutY="103.0" text="Application Assignment 2" />
+      <Label layoutX="114.0" layoutY="120.0" text="Copyright 2021" />
+      <Label layoutX="75.0" layoutY="67.0" prefHeight="17.0" prefWidth="161.0" text="Minecraft Inventory Manager" />
+   </children>
+</AnchorPane>

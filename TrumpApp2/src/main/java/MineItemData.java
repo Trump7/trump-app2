@@ -1,5 +1,7 @@
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
+/*
+ *  UCF COP3330 Fall 2021 Application Assignment 2 Solution
+ *  Copyright 2021 Matthew Trump
+ */
 
 public class MineItemData {
 
